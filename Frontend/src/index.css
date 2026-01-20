@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base - Deep Space / Mission Control */
+    --background: 220 20% 4%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 20% 6%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 20% 6%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 180 100% 50%;
+    /* Neon Cyan */
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 20% 12%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 20% 16%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 90% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 14%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.25rem;
+
+    /* Telemetry Channels - Neon Style */
+    --tel-speed: 140 100% 55%;
+    /* Green */
+    --tel-brake: 0 100% 65%;
+    /* Red */
+    --tel-brake: 0 100% 65%;
+    /* Red */
+    --tel-throttle: 30 100% 60%;
+    /* Orange */
+    --tel-gear: 270 90% 70%;
+    /* Purple */
+    --tel-rpm: 200 100% 60%;
+    /* Blue */
+
+    /* Radar Colors */
+    --radar-grid: 180 100% 50%;
+    /* Cyan */
+    --radar-blip: 100 100% 60%;
+    /* Green */
+    --radar-overlay: 45 100% 60%;
+    /* Amber */
+
+    /* F1 Team Colors (Brightened for Dark Mode) */
+    --team-redbull: 215 80% 60%;
+    --team-mercedes: 175 60% 60%;
+    --team-ferrari: 0 90% 65%;
+    --team-mclaren: 25 100% 60%;
+    --team-alpine: 330 90% 70%;
+    --team-aston: 155 70% 50%;
+    --team-williams: 200 90% 65%;
+    --team-alphatauri: 210 30% 80%;
+    --team-alfa: 350 70% 55%;
+    --team-haas: 0 0% 90%;
+
+    /* Sidebar */
+    --sidebar-background: 220 20% 3%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 20% 10%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 220 20% 12%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+}
+
+@layer components {
+  .track-glow {
+    filter: drop-shadow(0 0 8px hsl(var(--track-drs) / 0.5));
+  }
+
+  .driver-dot {
+    @apply w-3 h-3 rounded-full transition-all duration-100;
+    box-shadow: 0 0 6px currentColor;
+  }
+
+  .telemetry-bar {
+    @apply h-1 rounded-full transition-all duration-75;
+  }
+
+  .leaderboard-row {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded transition-colors;
+  }
+
+  .leaderboard-row:hover {
+    @apply bg-secondary/50;
+  }
+
+  .control-btn {
+    @apply p-2 rounded-lg bg-secondary hover:bg-secondary/80 text-foreground transition-all;
+  }
+
+  .control-btn:active {
+    @apply scale-95;
+  }
+
+  .status-indicator {
+    @apply w-2 h-2 rounded-full animate-pulse;
+  }
+
+  .glass-panel {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .glass-button {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 hover:bg-white/15 active:bg-white/20 transition-all duration-300;
+  }
+
+  .glass-sidebar {
+    @apply bg-black/60 backdrop-blur-2xl border-r border-white/5 shadow-2xl;
+  }
+}
+
+@layer utilities {
+  .text-timing {
+    @apply font-mono text-sm tracking-tight;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
