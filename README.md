@@ -1,6 +1,11 @@
 # GrandPrix Mission Control 🏎️ 🏁
 
+
 **GrandPrix Mission Control** is a high-fidelity Formula 1 race replay and telemetry dashboard. It provides a "Mission Control" style interface for visualizing race data, driver positions, and detailed telemetry in real-time.
+
+![GrandPrix Mission Control Preview](Backend/resources/Preview.png)
+
+
 
 ## 🚀 Key Features
 
@@ -84,9 +89,7 @@ grandprix-mission-control/
 └── README.md              # Project documentation
 ```
 
-## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📝 License
 
